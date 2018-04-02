@@ -20,7 +20,5 @@
   <ItemGroup>
     <Folder Include="Entities\" />
   </ItemGroup>
-  <ItemGroup>
-    <None Remove="App.config" />
-  </ItemGroup>
+    
 </Project>
