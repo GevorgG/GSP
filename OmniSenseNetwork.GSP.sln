@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmniSenseNetwork.GSP.ClientAPI", "OmniSenseNetwork.GSP.ClientAPI\OmniSenseNetwork.GSP.ClientAPI.csproj", "{5D86F509-6FBF-428C-8C94-212840A2D5B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmniSenseNetwork.GSP.BLL", "OmniSenseNetwork.GSP.BLL\OmniSenseNetwork.GSP.BLL.csproj", "{2F7FB21C-A3CF-487C-B3D1-D52482BB53E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,5 +27,9 @@ Global
 		{5D86F509-6FBF-428C-8C94-212840A2D5B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D86F509-6FBF-428C-8C94-212840A2D5B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D86F509-6FBF-428C-8C94-212840A2D5B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F7FB21C-A3CF-487C-B3D1-D52482BB53E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F7FB21C-A3CF-487C-B3D1-D52482BB53E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F7FB21C-A3CF-487C-B3D1-D52482BB53E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F7FB21C-A3CF-487C-B3D1-D52482BB53E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

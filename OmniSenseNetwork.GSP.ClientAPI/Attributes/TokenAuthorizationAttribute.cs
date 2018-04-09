@@ -23,7 +23,7 @@ namespace OmniSenseNetwork.GSP.ClientAPI.Attributes
                 var isAuthorized = await IsAuthorizedAsync(context);
                 if (!isAuthorized)
                 {
-                    HandlUnauthorizedRequest(context);
+                    HandleUnauthorizedRequest(context);
                     return;
                 }
             }
@@ -35,7 +35,7 @@ namespace OmniSenseNetwork.GSP.ClientAPI.Attributes
             return true;
         }
 
-        private void HandlUnauthorizedRequest(ActionExecutingContext context)
+        private void HandleUnauthorizedRequest(ActionExecutingContext context)
         {
             throw new NotImplementedException();
         }

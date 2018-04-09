@@ -10,7 +10,7 @@ namespace OmniSenseNetwork.GSP.ClientAPI.Controllers
     public class ClientsController : Controller
     {
         [HttpPost]
-        //[AllowAnonymous]
+        [AllowAnonymous]
         public IActionResult Login([FromBody] Credentials credentials)
         {
             //TODO
