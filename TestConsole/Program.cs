@@ -10,8 +10,11 @@ namespace TestConsole
             Console.WriteLine("Hello World!");
 
             var db = new GSPEntities();
-            db.Partner.Add(new Partner{ Name = "MedicalCentre" });
-            db.SaveChanges();
+            for (int i = 0; i < 3; i++)
+            {
+                db.Partner.Add(new Partner { Name = $"MedicalCentre_{i}" });
+                db.SaveChanges();
+            }
 
             Console.WriteLine("Changes have been saved.");
         }

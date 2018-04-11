@@ -7,6 +7,11 @@ namespace OmniSenseNetwork.GSP.DAL.Entities
 {
     public partial class Client
     {
+        public Client()
+        {
+            ClientSession = new HashSet<ClientSession>();
+        }
+
         [Column(TypeName = "int(11)")]
         public int Id { get; set; }
         [Required]
@@ -19,5 +24,8 @@ namespace OmniSenseNetwork.GSP.DAL.Entities
         public string Email { get; set; }
         [StringLength(18)]
         public string Phone { get; set; }
+
+        [InverseProperty("Client")]
+        public ICollection<ClientSession> ClientSession { get; set; }
     }
 }
