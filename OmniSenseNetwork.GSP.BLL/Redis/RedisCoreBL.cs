@@ -2,15 +2,13 @@
 
 namespace OmniSenseNetwork.GSP.BLL.Redis
 {
-    public class RedisCoreBL
+    public class RedisCoreBL : IRedisCoreBL
     {
         protected static IDatabase _database;
 
-        public RedisCoreBL()
+        public RedisCoreBL(IDatabase database)
         {
-            var connection = RedisConnectionFactory.GetConnection();
-
-            _database = connection.GetDatabase();
+            _database = database;
         }
 
         public string GetStringValue(string key)

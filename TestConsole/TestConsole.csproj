@@ -7,5 +7,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OmniSenseNetwork.GSP.DAL\OmniSenseNetwork.GSP.DAL.csproj" />
+    <ProjectReference Include="..\OmniSenseNetwork.GSP.BLL\OmniSenseNetwork.GSP.BLL.csproj" />
   </ItemGroup>
 </Project>
