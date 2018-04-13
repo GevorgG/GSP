@@ -5,6 +5,17 @@ namespace OmniSenseNetwork.GSP.Common.Configurations
 {
     public class RedisConfiguration
     {
+        public string Host { get; set; }
+
+        public int Port { get; set; }
+
+        public int DatabaseId { get; set; }
+
+        public int Timeout { get; set; }
+
+        public string Password { get; set; }
+
+        #region Ctors
         public RedisConfiguration()
         {
             var configuration = new ConfigurationBuilder()
@@ -30,15 +41,6 @@ namespace OmniSenseNetwork.GSP.Common.Configurations
             }
             Password = configuration[$"Configurations:redisConfig:password"] ?? string.Empty;
         }
-
-        public string Host { get; set; }
-
-        public int Port { get; set; }
-
-        public int DatabaseId { get; set; }
-
-        public int Timeout { get; set; }
-
-        public string Password { get; set; }
+        #endregion
     }
 }

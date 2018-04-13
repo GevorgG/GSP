@@ -16,13 +16,13 @@ namespace TestConsole
             //    db.SaveChanges();
             //}
 
-            var redisCoreBL = RedisBLFactory.CreateRedisCoreBL() as RedisCoreBL;
+            //var redisCoreBL = RedisBLFactory.CreateRedisCoreBL() as RedisCoreBL;
             //redisCoreBL.SetStringValue("key_1", "value_1");
             //redisCoreBL.SetStringValue("key_2", "value_2");
 
-            var v2 = redisCoreBL.GetStringValue("key_2");
+            //var v2 = redisCoreBL.GetStringValue("key_2");
 
-            Console.WriteLine("Changes have been saved.");
+            Console.WriteLine(RedisEventType.Expired);
         }
     }
 }

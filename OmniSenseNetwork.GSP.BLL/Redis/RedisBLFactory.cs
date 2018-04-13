@@ -12,20 +12,21 @@ namespace OmniSenseNetwork.GSP.BLL.Redis
     {
         #region Members
         private static readonly Lazy<ConnectionMultiplexer> Connection;
+        private static readonly RedisConfiguration configuration;
         #endregion
 
         #region Ctors
         static RedisBLFactory()
         {
-            var redisConfigs = new RedisConfiguration();
+            configuration = new RedisConfiguration();
 
-            if (!IPAddress.TryParse(redisConfigs.Host, out IPAddress ipAddress))
+            if (!IPAddress.TryParse(configuration.Host, out IPAddress ipAddress))
             {
                 throw CreateException<BllException>(Constants.Errors.ConfigurationError);
             }
             var options = new ConfigurationOptions
             {
-                EndPoints = { new IPEndPoint(ipAddress, redisConfigs.Port) }
+                EndPoints = { new IPEndPoint(ipAddress, configuration.Port) }
             };
 
             Connection = new Lazy<ConnectionMultiplexer>(() => ConnectionMultiplexer.Connect(options));
@@ -40,7 +41,7 @@ namespace OmniSenseNetwork.GSP.BLL.Redis
 
         public static IRedisCoreBL CreateRedisCoreBL()
         {
-            return new RedisCoreBL(GetConnection().GetDatabase());
+            return new RedisCoreBL(GetConnection(), configuration);
         }
 
         #region Private Methods
