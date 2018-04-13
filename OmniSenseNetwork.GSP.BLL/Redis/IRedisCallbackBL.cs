@@ -1,8 +1,7 @@
-﻿using System;
-namespace OmniSenseNetwork.GSP.BLL.Redis
+﻿namespace OmniSenseNetwork.GSP.BLL.Redis
 {
     public interface IRedisCallbackBL
     {
-        void HandleEvent(string eventType, string value);
+        void HandleEvent(string param, string value);
     }
 }
