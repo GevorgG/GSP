@@ -19,7 +19,7 @@ namespace OmniSenseNetwork.GSP.BLL.Redis
         {
             var redisConfigs = new RedisConfiguration();
 
-            if(!IPAddress.TryParse(redisConfigs.Host, out IPAddress ipAddress))
+            if (!IPAddress.TryParse(redisConfigs.Host, out IPAddress ipAddress))
             {
                 throw CreateException<BllException>(Constants.Errors.ConfigurationError);
             }
@@ -31,8 +31,6 @@ namespace OmniSenseNetwork.GSP.BLL.Redis
             Connection = new Lazy<ConnectionMultiplexer>(() => ConnectionMultiplexer.Connect(options));
         }
         #endregion
-		
-        public static ConnectionMultiplexer GetConnection() => Connection.Value;
 
         public static void CloseConnection()
         {
@@ -44,13 +42,9 @@ namespace OmniSenseNetwork.GSP.BLL.Redis
         {
             return new RedisCoreBL(GetConnection().GetDatabase());
         }
-        
-    }
 
-    public class Config
-    {
-        public string Host { get; set; }
-
-        public int Post { get; set; }
+        #region Private Methods
+        private static ConnectionMultiplexer GetConnection() => Connection.Value;
+        #endregion
     }
 }
