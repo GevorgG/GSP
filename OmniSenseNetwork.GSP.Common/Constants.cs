@@ -5,6 +5,7 @@
         public static class Errors
         {
             public const string ArgumentError = "ArgumentError";
+            public const string ConfigurationError = "ConfigurationError";
         }
     }
 }

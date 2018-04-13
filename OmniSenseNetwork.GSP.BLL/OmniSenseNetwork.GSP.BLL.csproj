@@ -10,7 +10,6 @@
   <ItemGroup>
     <PackageReference Include="StackExchange.Redis" Version="1.2.6" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.1" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OmniSenseNetwork.GSP.Common\OmniSenseNetwork.GSP.Common.csproj" />

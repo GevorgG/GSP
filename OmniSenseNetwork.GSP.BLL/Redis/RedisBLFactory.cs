@@ -1,6 +1,7 @@
 ﻿using System;
-using System.IO;
-using Microsoft.Extensions.Configuration;
+using System.Net;
+using OmniSenseNetwork.GSP.Common;
+using OmniSenseNetwork.GSP.Common.Configurations;
 using OmniSenseNetwork.GSP.Common.Exceptions;
 using StackExchange.Redis;
 using static OmniSenseNetwork.GSP.Common.CommonUtils.Exceptions;
@@ -11,25 +12,21 @@ namespace OmniSenseNetwork.GSP.BLL.Redis
     {
         #region Members
         private static readonly Lazy<ConnectionMultiplexer> Connection;
-        private static readonly string _redisConfigName = "redisConfig";
         #endregion
 
         #region Ctors
         static RedisBLFactory()
         {
-            var configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .Build();
+            var redisConfigs = new RedisConfiguration();
 
-            var connectionString = configuration.GetConnectionString(_redisConfigName);
-
-            if (connectionString == null)
+            if(!IPAddress.TryParse(redisConfigs.Host, out IPAddress ipAddress))
             {
-                throw CreateException<BllException>($"Configuration section {_redisConfigName} was not found.");
+                throw CreateException<BllException>(Constants.Errors.ConfigurationError);
             }
-
-            var options = ConfigurationOptions.Parse(connectionString);
+            var options = new ConfigurationOptions
+            {
+                EndPoints = { new IPEndPoint(ipAddress, redisConfigs.Port) }
+            };
 
             Connection = new Lazy<ConnectionMultiplexer>(() => ConnectionMultiplexer.Connect(options));
         }
@@ -48,5 +45,12 @@ namespace OmniSenseNetwork.GSP.BLL.Redis
             return new RedisCoreBL(GetConnection().GetDatabase());
         }
         
+    }
+
+    public class Config
+    {
+        public string Host { get; set; }
+
+        public int Post { get; set; }
     }
 }
