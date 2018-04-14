@@ -15,6 +15,10 @@ namespace OmniSenseNetwork.GSP.BLL.Redis
         private static readonly RedisConfiguration configuration;
         #endregion
 
+        #region Private Methods
+        private static ConnectionMultiplexer GetConnection() => Connection.Value;
+        #endregion
+
         #region Ctors
         static RedisBLFactory()
         {
@@ -44,8 +48,9 @@ namespace OmniSenseNetwork.GSP.BLL.Redis
             return new RedisCoreBL(GetConnection(), configuration);
         }
 
-        #region Private Methods
-        private static ConnectionMultiplexer GetConnection() => Connection.Value;
-        #endregion
+        public static IClientAuthenticationRedisBL CreateClientAuthenticationRedisBL()
+        {
+            return new ClientAuthenticationRedisBL(GetConnection(), configuration);
+        }
     }
 }

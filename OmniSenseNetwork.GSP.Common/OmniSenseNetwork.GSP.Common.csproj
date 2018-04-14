@@ -8,9 +8,13 @@
     <Folder Include="Exceptions\" />
     <Folder Include="Configurations\" />
     <Folder Include="Helpers\" />
+    <Folder Include="DataContracts\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OmniSenseNetwork.GSP.DAL\OmniSenseNetwork.GSP.DAL.csproj" />
   </ItemGroup>
 </Project>

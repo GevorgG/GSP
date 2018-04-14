@@ -44,21 +44,6 @@ namespace OmniSenseNetwork.GSP.BLL.Redis
         {
             Subscribe(SubscriptionType.Keyspace, eventType.ToString(), bl);
         }
-
-        public string GetStringValue(string key)
-        {
-            return _database.StringGet(key);
-        }
-
-        public void SetStringValue(string key, string value)
-        {
-            _database.StringSet(key, value);
-        }
-
-        public void DeleteStringValue(string key)
-        {
-            _database.KeyDelete(key);
-        }
         #endregion
 
         #region private methods

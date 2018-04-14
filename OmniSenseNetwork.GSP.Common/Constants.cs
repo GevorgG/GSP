@@ -6,6 +6,8 @@
         {
             public const string ArgumentError = "ArgumentError";
             public const string ConfigurationError = "ConfigurationError";
+            public const string TokenAlreadyExists = "TokenAlreadyExists";
+            public const string WrongSessionToken = "WrongSessionToken";
         }
     }
 }
