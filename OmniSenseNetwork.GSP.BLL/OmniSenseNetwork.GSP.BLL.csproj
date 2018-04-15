@@ -6,6 +6,11 @@
 
   <ItemGroup>
     <Folder Include="Redis\" />
+    <Folder Include="Redis\Interfaces\" />
+    <Folder Include="Redis\Implementations\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Core\" />
+    <Folder Include="Implementations\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="StackExchange.Redis" Version="1.2.6" />
@@ -13,5 +18,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OmniSenseNetwork.GSP.Common\OmniSenseNetwork.GSP.Common.csproj" />
+    <ProjectReference Include="..\OmniSenseNetwork.GSP.DAL\OmniSenseNetwork.GSP.DAL.csproj" />
   </ItemGroup>
 </Project>
